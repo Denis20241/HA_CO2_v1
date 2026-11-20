@@ -25,6 +25,9 @@
     "abort": {
       "already_configured": "A monitor with this IP is already configured.",
       "reconfigure_successful": "The monitor address was updated."
+    },
+    "create_entry": {
+      "default": "Open [Air monitor](/senseair-air-monitor) in the Home Assistant sidebar."
     }
   },
   "entity": {

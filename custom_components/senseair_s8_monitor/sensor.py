@@ -45,6 +45,8 @@ SENSORS = (
         translation_key="press",
         device_class=SensorDeviceClass.ATMOSPHERIC_PRESSURE,
         native_unit_of_measurement=UnitOfPressure.MMHG,
+        suggested_unit_of_measurement=UnitOfPressure.MMHG,
+        suggested_display_precision=1,
     ),
 )
 
@@ -81,4 +83,4 @@ class MonitorSensor(CoordinatorEntity[MonitorCoordinator], SensorEntity):
 
     @property
     def native_value(self) -> int | float | None:
-        return self.coordinator.data[self.entity_description.key]
+        return (self.coordinator.data or {}).get(self.entity_description.key)

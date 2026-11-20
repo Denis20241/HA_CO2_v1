@@ -25,6 +25,9 @@
     "abort": {
       "already_configured": "Монитор с таким IP уже добавлен.",
       "reconfigure_successful": "Адрес монитора обновлён."
+    },
+    "create_entry": {
+      "default": "Откройте [Монитор воздуха](/senseair-air-monitor) в боковом меню Home Assistant."
     }
   },
   "entity": {

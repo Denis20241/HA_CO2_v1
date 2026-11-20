@@ -20,7 +20,7 @@ class InvalidMonitorResponse(ValueError):
 
 async def read_measurements(
     session: ClientSession, host: str, *, verify_schema: bool = False
-) -> dict[str, int | float | None]:
+) -> dict[str, int | float | bool | str | None]:
     """Retrieve all four measurements in one request."""
     try:
         async with asyncio.timeout(3):
@@ -52,4 +52,11 @@ async def read_measurements(
             readings[key] = None
     if all(value is None for value in readings.values()):
         raise InvalidMonitorResponse("No numeric measurements")
+    for key in ("t_off", "h_off", "status"):
+        value = payload.get(key)
+        readings[key] = value if type(value) in (int, float) and isfinite(value) else None
+    for key in ("ip", "time"):
+        value = payload.get(key)
+        readings[key] = value if isinstance(value, str) else None
+    readings["abc"] = payload["abc"]
     return readings

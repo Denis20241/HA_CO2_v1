@@ -1,0 +1,75 @@
+<header>
+  <button class="menu" data-action="menu" aria-label="Открыть меню">☰</button>
+  <div>
+    <h1>Монитор воздуха</h1>
+    <div id="room"></div>
+  </div>
+  <label class="monitor"
+    >Прибор
+    <select id="device"></select
+  ></label>
+</header>
+<main>
+  <p id="notice" role="status" hidden></p>
+  <div id="content" hidden>
+    <section
+      class="metrics"
+      id="metrics"
+      aria-label="Текущие показания"
+    ></section>
+    <section class="card comparison">
+      <div class="cardhead">
+        <div>
+          <h2>Показатели вместе</h2>
+          <p id="range"></p>
+        </div>
+        <div id="period" class="segments" aria-label="Период графиков"></div>
+      </div>
+      <div id="legend" aria-label="Видимые показатели"></div>
+      <div id="combined"></div>
+    </section>
+    <section
+      class="details"
+      id="charts"
+      aria-label="Графики показателей"
+    ></section>
+    <section class="card" id="technical">
+      <div class="cardhead">
+        <h2>Диагностика</h2>
+        <a id="deviceLink" target="_blank" rel="noopener noreferrer"
+          >Веб-интерфейс ↗</a
+        >
+      </div>
+      <dl id="diagnostics"></dl>
+    </section>
+    <section class="card">
+      <div class="cardhead">
+        <div>
+          <h2>Журнал прибора</h2>
+          <p>Часовые максимумы за последние 7 суток</p>
+        </div>
+        <div class="actions">
+          <button data-action="journal">Открыть журнал</button
+          ><button data-action="csv">Скачать CSV</button>
+        </div>
+      </div>
+      <div id="table" role="status"></div>
+    </section>
+    <section class="card" id="controls" hidden>
+      <h2>Управление прибором</h2>
+      <div id="commands"></div>
+      <p id="feedback" role="status"></p>
+    </section>
+  </div>
+</main>
+<dialog id="dialog">
+  <form id="form">
+    <h2 id="dialogTitle"></h2>
+    <p id="dialogText"></p>
+    <div id="fields"></div>
+    <div class="actions">
+      <button type="button" data-action="cancel">Отмена</button
+      ><button type="submit" id="confirm">Подтвердить</button>
+    </div>
+  </form>
+</dialog>

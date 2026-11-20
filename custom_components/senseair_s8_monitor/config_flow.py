@@ -17,6 +17,7 @@ class MonitorConfigFlow(ConfigFlow, domain=DOMAIN):
     """Validate the address and firmware API before saving."""
 
     VERSION = 1
+    MINOR_VERSION = 2
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
