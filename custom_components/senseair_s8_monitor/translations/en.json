@@ -1,0 +1,46 @@
+{
+  "title": "SenseAir S8 Monitor",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add air monitor",
+        "description": "Enter the IPv4 address shown on the monitor connected to your home Wi-Fi.",
+        "data": {
+          "host": "Monitor IP address"
+        }
+      },
+      "reconfigure": {
+        "title": "Change monitor address",
+        "description": "Enter the new IP shown on the same monitor. Its entities and history will be preserved.",
+        "data": {
+          "host": "Monitor IP address"
+        }
+      }
+    },
+    "error": {
+      "invalid_ip": "Enter an IPv4 address such as 192.168.1.50.",
+      "cannot_connect": "The monitor did not respond. Check its IP and network connection to Home Assistant.",
+      "invalid_response": "This address returned an incompatible monitor response."
+    },
+    "abort": {
+      "already_configured": "A monitor with this IP is already configured.",
+      "reconfigure_successful": "The monitor address was updated."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "co2": {
+        "name": "CO₂"
+      },
+      "temp": {
+        "name": "Temperature"
+      },
+      "hum": {
+        "name": "Humidity"
+      },
+      "press": {
+        "name": "Atmospheric pressure"
+      }
+    }
+  }
+}
